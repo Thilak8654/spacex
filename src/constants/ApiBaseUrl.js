@@ -1,0 +1,1 @@
+export const API_APPLICATION = 'https://api.spacexdata.com/v3';
