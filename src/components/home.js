@@ -203,7 +203,7 @@ class Home extends React.Component {
             </Grid>
           </Grid>
         </Grid>
-        <h5>Developed By: Thilak Raj </h5>
+        <h5 className="developer-name">Developed By: Thilak Raj </h5>
       </div>
     );
   }
