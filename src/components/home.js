@@ -143,7 +143,7 @@ class Home extends React.Component {
           </Grid>
           <Grid item xs={12} sm={9} lg={10}>
             <Grid container>
-              {spaceData.length > 0 &&
+              {spaceData.length > 0 ?
                 spaceData.map((item, index) => (
                   <Grid
                     key={index}
@@ -200,11 +200,13 @@ class Home extends React.Component {
                       </div>
                     </Paper>
                   </Grid>
-                ))}
+                )) : (
+                  <h6 className="center-txt">No Data found</h6>
+                )}
             </Grid>
           </Grid>
         </Grid>
-        <h5 className="developer-name">Developed By: Thilak Raj </h5>
+        <h5 className="center-txt">Developed By: Thilak Raj </h5>
       </div>
     );
   }
