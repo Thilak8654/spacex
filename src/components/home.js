@@ -30,8 +30,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    let req = "limit=100";
-    this.getSpaceData(req);
+    this.getSpaceData('');
   }
 
   getSpaceData(request) {
@@ -81,7 +80,7 @@ class Home extends React.Component {
       <div className="home-container">
         <h2>SpaceEx Launch rograms</h2>
         <Grid container>
-          <Grid item xs={12} lg={2}>
+          <Grid item xs={12} sm={3} lg={2}>
             <Paper className="filter-wrapper">
               <h6 className="font-heading">Filters</h6>
 
@@ -142,7 +141,7 @@ class Home extends React.Component {
               </div>
             </Paper>
           </Grid>
-          <Grid item xs={12} lg={10}>
+          <Grid item xs={12} sm={9} lg={10}>
             <Grid container>
               {spaceData.length > 0 &&
                 spaceData.map((item, index) => (
@@ -153,15 +152,16 @@ class Home extends React.Component {
                     sm={6}
                     md={4}
                     lg={3}
-                    style={{ padding: "10px" }}
+                    className="grid-wrapper"
                   >
-                    <Paper className="grid-wrapper">
+                    <Paper>
                       <div className="grid-sub-wrapper">
                         <img
                           srcSet={`${item["links"]["mission_patch"]} 1200w`}
                           src={item["links"]["mission_patch_small"]}
                           alt={item["mission_name"] + "Logo"}
                         />
+                        <div className="card-info">
                         <a
                           className="font-heading"
                           href="https://www.space.com/2196-spacex-inaugural-falcon-1-rocket-lost-launch.html"
@@ -193,9 +193,10 @@ class Home extends React.Component {
                         <h6 className="font-heading">
                           Successful Landing:{" "}
                           <span className="value-text">
-                            {"" + item["is_tentative"] + ""}
+                            {item["rocket"]["first_stage"]["cores"][0]["land_success"]!==null ? ('' + item["rocket"]["first_stage"]["cores"][0]["land_success"] + '') : ""}
                           </span>
                         </h6>
+                        </div>
                       </div>
                     </Paper>
                   </Grid>
